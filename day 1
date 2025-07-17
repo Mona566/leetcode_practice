@@ -24,8 +24,7 @@
   Example 1: https://leetcode.com/problems/search-insert-position/  Search Insert Position
 
  Code:
-
- class Solution:
+class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         left= 0
         right= len(nums)-1
@@ -39,5 +38,23 @@
             else:
                 return middle
         return left  (This is the part I made mistake as I didn't read the problem carefully (it is asked to return the index where it would be if it were inserted in order.))
+
+Example 2: https://leetcode.com/problems/binary-search/description/ Binary Search
+
+Code:
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left=0
+        right= len(nums)-1
+
+        while left<=right:
+            mid= left+(right-left)//2
+            if nums[mid]>target:
+                right= mid-1
+            elif nums[mid]<target:
+                left=mid+1
+            else:
+                return mid
+        return -1
 
   
