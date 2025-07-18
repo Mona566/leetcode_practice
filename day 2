@@ -1,0 +1,23 @@
+1. Static arrary: 
+   Example 1. Remove Element https://leetcode.com/problems/remove-element/description/
+   code:
+    class Solution:
+        def removeElement(self, nums: List[int], val: int) -> int:
+            slow=0
+            for i in range(len(nums)):
+                if nums[i]!=val:
+                    nums[slow]=nums[i]
+                    slow+=1
+            return slow
+
+2. Dynamic Arrays
+  Example 1. Concatenation of Array  https://leetcode.com/problems/concatenation-of-array/
+  Code:
+    class Solution:
+      def getConcatenation(self, nums: List[int]) -> List[int]:
+          n= len(nums)
+          ans= [0]*2*n
+          for i in range(n):
+              ans[i]=nums[i]
+              ans[i+n]=nums[i]
+          return ans
