@@ -1,0 +1,40 @@
+Stacks
+Example 1: https://neetcode.io/problems/validate-parentheses?list=neetcode150 Valid Parentheses
+Code:
+  class Solution:
+      def isValid(self, s: str) -> bool:
+          strings= {')':'(', '}':'{', ']':'['}
+          stack = []
+  
+          for i in s:
+              if i in strings:
+                  if stack and strings[i]==stack[-1]:
+                      stack.pop()
+                  else:
+                      return False
+              else:
+                  stack.append(i)
+          return True if not stack else False
+
+  Example 2: https://leetcode.com/problems/squares-of-a-sorted-array/description/ Squares of a Sorted Array
+  Code:
+  class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        left= 0
+        right= len(nums)-1
+        k= len(nums)-1
+        ans= [float('inf')]*len(nums)
+        
+        while left<=right:
+            if nums[left]*nums[left]<nums[right]*nums[right]:
+                ans[k]=nums[right]*nums[right]
+                right-=1
+            else:
+                ans[k]=nums[left]*nums[left]
+                left+=1
+            k-=1
+        return ans
+
+
+
+        
