@@ -21,7 +21,7 @@
     
         def push(self, val: int) -> None:
             self.stack.append(val)
-            val = min(val, self.minstack[-1] if self.minstack else val)
+            val = min(val, self.minstack[-1] if self.minstack else val)  # compare the current val value and the last value in  minstack 
             self.minstack.append(val)
             
     
