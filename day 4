@@ -1,0 +1,70 @@
+1. When you want to delete an element:
+
+| Method      | Works on      | Removes by          | Returns | Raises if not found           | Use case                  |
+| ----------- | ------------- | ------------------- | ------- | ----------------------------- | ------------------------- |
+| `remove(x)` | list          | value               | No      | Yes (`ValueError`)            | Delete specific value     |
+| `pop([i])`  | list          | index               | Yes     | Yes (`IndexError`)            | Delete and get by index   |  pop() will pop the last element by default
+| `del`       | list/dict/var | index/key/slice/var | No      | Yes (`IndexError`/`KeyError`) | Delete item or variable   |
+| `pop(key)`  | dict          | key                 | Yes     | Yes (if no default)           | Remove and get dict value |
+| `popitem()` | dict          | last pair           | Yes     | Yes (`KeyError`)              | LIFO dict removal         |
+| `clear()`   | list/dict     | all                 | No      | No                            | Empty entire list/dict    |
+
+
+  Example: https://neetcode.io/problems/minimum-stack    Minimum Stack
+  Code:
+    class MinStack:
+    
+        def __init__(self):
+            self.stack= []
+            self.minstack= []
+            
+    
+        def push(self, val: int) -> None:
+            self.stack.append(val)
+            val = min(val, self.minstack[-1] if self.minstack else val)
+            self.minstack.append(val)
+            
+    
+        def pop(self) -> None:
+            self.stack.pop()
+            self.minstack.pop()
+            
+    
+        def top(self) -> int:
+            return self.stack[-1]
+            
+        def getMin(self) -> int:
+            return self.minstack[-1]
+  ******************  for this problem, this is clever to use two stacks and get the mimum value
+
+  2. sliding window 
+    Example: https://leetcode.com/problems/minimum-size-subarray-sum/description/ Minimum Size Subarray Sum
+    class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        l= 0
+        sum_lr = 0
+        res= float('inf')   # Initialize res to infinity, and return 0 if it never gets updated
+
+        for r in range(len(nums)):
+            sum_lr+=nums[r]
+            while sum_lr>=target:
+                res= min(res, r-l+1)
+                sum_lr-=nums[l]
+                l+=1
+        return res if res!=float('inf') else 0
+
+                
+
+
+     
+
+
+
+
+
+
+            
+
+  
+            
+            
