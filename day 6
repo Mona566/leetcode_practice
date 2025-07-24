@@ -1,1 +1,92 @@
+linked lists:
+链表是一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域一个是指针域（存放指向下一个节点的指针），最后一个节点的指针域指向null（空指针的意思）。
+链表分为单链表和双链表：单链表中的指针域只能指向节点的下一个节点；双链表：每一个节点有两个指针域，一个指向下一个节点，一个指向上一个节点。双链表 既可以向前查询也可以向后查询。
+循环链表，顾名思义，就是链表首尾相连。
+
+数组是在内存中是连续分布的，但是链表在内存中可不是连续分布的。而链表是通过指针域的指针链接在内存中各个节点。
+所以链表中的节点在内存中不是连续分布的 ，而是散乱分布在内存中的某地址上，分配机制取决于操作系统的内存管理
+
+性能分析：
+数组在定义的时候，长度就是固定的，如果想改动数组的长度，就需要重新定义一个新的数组。
+链表的长度可以是不固定的，并且可以动态增删， 适合数据量不固定，频繁增删，较少查询的场景。
+
+Singly Linked Lists
+Example 1: Reverse Linked List https://neetcode.io/problems/reverse-a-linked-list
+Code:
+  # Definition for singly-linked list.
+  # class ListNode:
+  #     def __init__(self, val=0, next=None):
+  #         self.val = val
+  #         self.next = next
+  
+  class Solution:
+      def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+          prev,curr= None,head
+  
+          while curr:
+              nxt=curr.next
+              curr.next=prev
+              prev=curr
+              curr=nxt
+          return prev
+
+Example 2: Merge Two Sorted Linked Lists https://neetcode.io/problems/merge-two-sorted-linked-lists
+Code:
+   # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy=ListNode()
+        head=dummy
+
+        while list1 and list2:
+            if list1.val<list2.val:
+                head.next=list1
+                list1= list1.next
+            else:
+                head.next=list2
+                list2= list2.next     
+            head=head.next
+
+        if list1:
+            head.next= list1
+        if list2:
+            head.next= list2
+            
+        return dummy.next
+
+Example: Remove Linked List Elements https://leetcode.com/problems/remove-linked-list-elements/description/
+Code:
+    # Definition for singly-linked list.
+    # class ListNode:
+    #     def __init__(self, val=0, next=None):
+    #         self.val = val
+    #         self.next = next
+    class Solution:
+        def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+            dummy=ListNode()
+            dummy.next=head
+            prev,curr= dummy,head
+    
+            while curr:
+                nxt=curr.next
+    
+                if curr.val==val:
+                    prev.next=nxt
+                else:
+                    prev=curr
+    
+                curr=nxt
+
+        return dummy.next
+            
+
+
+
+
+        
 
