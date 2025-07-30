@@ -60,7 +60,7 @@ Code:
               
               # update the pointers
               prev= curr
-              curr= curr.next
+              curr= nxt
           
           return dummy.next
 
