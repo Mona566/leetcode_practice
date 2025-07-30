@@ -14,3 +14,62 @@ class Solution:
             l2=l2.next if l2 else headA
         return l1
 
+Linked List Cycle II https://leetcode.com/problems/linked-list-cycle-ii/description/?source=submission-ac
+
+Code:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        fast,slow= head,head
+
+        while fast and fast.next:
+            fast= fast.next.next
+            slow= slow.next
+            if fast==slow:
+                slow= head
+                while slow!=fast:
+                    slow= slow.next
+                    fast=fast.next
+                return slow
+
+Explnation: 
+
+Here is the explanation rewritten as plain text suitable for inserting into a Word document:
+
+---
+
+**Why does the second loop work?**
+
+* Let **a** be the distance from the head of the list to the start of the cycle.
+* Let **b** be the distance from the start of the cycle to the point where the fast and slow pointers first meet.
+* Let **c** be the total length of the cycle.
+
+When the fast and slow pointers meet for the first time:
+
+* The slow pointer has traveled a total distance of **a + b**.
+* The fast pointer has traveled a total distance of **a + b + n × c**, where *n* is the number of full cycles the fast pointer has completed.
+
+Since the fast pointer moves twice as fast as the slow pointer, we have the equation:
+
+**2 × (a + b) = a + b + n × c**
+
+This simplifies to:
+
+**a + b = n × c**
+**a = n × c – b**
+
+This result is the key insight. It means that if we reset the slow pointer back to the head and then move both the slow and fast pointers one step at a time:
+
+* The slow pointer will travel exactly **a** steps to reach the start of the cycle.
+* The fast pointer will travel **n × c – b** steps.
+
+Because **n × c – b** is a multiple of the cycle length, the fast pointer will also arrive at the start of the cycle at the same time.
+
+Therefore, the point where the two pointers meet after the second loop is guaranteed to be the start of the cycle.
+
+        
