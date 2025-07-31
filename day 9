@@ -1,4 +1,6 @@
 Hash Table 
+Example:
+Code:
 Valid Anagram https://leetcode.com/problems/valid-anagram/description/
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -18,3 +20,28 @@ Notice:
 dict.get(key, default) is a Python method: It looks for key in the dictionary:
   If key exists → returns its value.
   If key does not exist → returns the default value you provide.
+
+Example:
+ Intersection of Two Arrays https://leetcode.com/problems/intersection-of-two-arrays/description/
+Code:
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # res= []
+        # for i in range(len(nums1)):
+        #     if nums1[i] in nums2 and nums1[i] not in res:
+        #         res.append(nums1[i])
+        # return res
+
+ # The method below provide better performance
+        res= []
+        temp={}
+
+        for i in nums1:
+            temp[i]=1
+        
+        for i in nums2:
+            if i in temp and temp[i]:
+                res.append(i)
+                temp[i]-=1
+        return res    
+    
