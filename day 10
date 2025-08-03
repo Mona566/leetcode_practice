@@ -1,0 +1,76 @@
+The difference bettween set and dict in python 
+  
+| Feature     | dict                   | set                            |
+| ----------- | ---------------------- | ------------------------------ |
+| Data stored | key → value            | only keys                      |
+| Syntax      | `{key: value}`         | `{value}` or `set()`           |
+| Access      | `my_dict[key] → value` | Membership test: `x in my_set` |
+| Duplicates  | Keys must be unique    | Elements must be unique        |
+| Use case    | Mapping relationships  | Unique elements / fast lookup  |
+
+
+
+Example: Happy Number https://leetcode.com/problems/happy-number/description/
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        visited= set()
+
+        while n not in visited:
+            visited.add(n)
+            n= self.square_n(n)
+            
+            if n==1:
+                return True
+        return False
+        
+    def square_n(self,n):
+        res= 0 
+        while n:
+            digit= n%10   # do modulo operation to extract the last digit of n.
+            digit= digit**2
+            res+=digit
+            n=n//10 # do integer division to remove the last digit of n.
+        return res
+
+Sum of Two Integers https://leetcode.com/problems/sum-of-two-integers/description/
+Code:
+ class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        mask= 0xFFFFFFFF
+        max_int= 0x7FFFFFFF
+
+        while b!=0:
+            carry= (a&b)<<1 #get the carry and move it left 
+            a= (a^b)&mask
+            b= carry&mask
+
+        return a if a<=max_int else ~(a^mask)
+          
+        * mask ensures we only keep the last 32 bits (simulating 32-bit integers).
+        * max_int is the maximum positive integer in 32-bit signed integer (2,147,483,647).
+        *  & mask ensures that we only keep the lower 32 bits. This is important because Python integers are unlimited in size, but we want to simulate 32-bit signed integer behavior.
+        *   ^ (XOR): Exclusive OR
+            1 ^ 1 = 0; 1 ^ 0 = 1; 0 ^ 1 = 1; 0 ^ 0 = 0; Usage here: adds bits together without considering carry.
+        *  & (AND):
+           1 & 1 = 1; 1 & 0 = 0; 0 & 1 = 0; 0 & 0 = 0; Usage here: masks bits or extracts bits.
+
+       * mask: used throughout the loop to keep numbers inside 32-bit bounds.
+       * max_int: used at the end to decide if the result is positive (≤ max_int) or negative (> max_int) and convert it accordingly.
+
+
+          
+          
+          
+          
+          
+          
+          
+          
+
+
+
+        
+
+
+        
+
