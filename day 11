@@ -1,0 +1,15 @@
+Example: 4Sum II https://leetcode.com/problems/4sum-ii/description/
+class Solution:
+    def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
+        n,heatmap,res= len(nums1),defaultdict(int),0
+
+        for i in range(n):
+            for j in range(n):
+                heatmap[nums1[i]+nums2[j]]+=1    # 遍历 nums1 和 nums2 的所有组合，计算每一对元素之和，并在哈希表中记录该和出现的次数。
+        
+        for i in range(n):
+            for j in range(n):
+                res+=heatmap[0-nums3[i]-nums4[j]] # 计算每对元素之和，并查找这个和的相反数（0 - 和）是否在前面生成的哈希表中
+        
+        return res
+        
