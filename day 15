@@ -1,0 +1,39 @@
+ Reverse Words in a String https://leetcode.com/problems/reverse-words-in-a-string/description/
+code:
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        chars= list(s)
+        i=0
+        k=0
+        n=len(chars)
+
+        chars.reverse()
+
+        while i<n:
+            while i<n and chars[i]==' ':
+                i+=1
+            
+            if i<n and k>0:
+                chars[k]=' '
+                k+=1
+            
+            word_start= k
+
+            while i<n and chars[i]!=' ':
+                chars[k]=chars[i]
+                i+=1
+                k+=1
+            
+            self.reverse(chars, word_start, k - 1)
+
+        chars= chars[:k]
+        return "".join(chars)
+            
+
+    def reverse(self,s,l,r):
+        while l<r:
+            s[l],s[r]=s[r],s[l]
+            l+=1
+            r-=1
+
+        
