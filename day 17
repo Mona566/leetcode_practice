@@ -1,0 +1,11 @@
+Example: Repeated Substring Pattern  https://leetcode.com/problems/repeated-substring-pattern/description/
+Code:
+class Solution:
+    def repeatedSubstringPattern(self, s: str) -> bool:
+        n= len(s)
+        for i in range(1,n//2+1): # The smallest repeating pattern would be length 1, and the largest possible is half the string length.
+            if n%i==0:   # This ensures that the substring length i can evenly divide the whole string.
+                substr= s[:i]
+            if substr*(n//i)==s: # Repeats substring exactly (n // i) times. Compares the result to the original string s.
+                return True
+        return False
