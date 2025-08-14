@@ -3,7 +3,9 @@ Basic algorithm
 1. Arrary (day1-day5):
 
 二分搜索法:
+
 Example 1: https://leetcode.com/problems/search-insert-position/  Search Insert Position
+
 Example 2: https://leetcode.com/problems/binary-search/description/ Binary Search
 
 Static Arrays
