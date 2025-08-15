@@ -38,6 +38,8 @@ Example 10: https://neetcode.io/problems/spiral-matrix Spiral Matrix
 
 Example 11: https://leetcode.com/problems/spiral-matrix-ii/description/ piral Matrix II
 
+day6-day10:
+
 linked lists:
 
 Singly Linked Lists
@@ -63,7 +65,12 @@ Example 19: Linked list: https://leetcode.com/problems/intersection-of-two-linke
 Example 20: Linked List Cycle II https://leetcode.com/problems/linked-list-cycle-ii/description/?source=submission-ac
 
 Hash Table 
+
 Example 21: Valid Anagram https://leetcode.com/problems/valid-anagram/description/
+Example 22: Intersection of Two Arrays https://leetcode.com/problems/intersection-of-two-arrays/description/
+
+Example 23: Happy Number https://leetcode.com/problems/happy-number/description/
+
 
 
 
