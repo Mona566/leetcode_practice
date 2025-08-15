@@ -76,6 +76,14 @@ Example 24: Sum of Two Integers https://leetcode.com/problems/sum-of-two-integer
 
 (day 11 - day 15)
 
+Example 25: 4Sum II https://leetcode.com/problems/4sum-ii/description/
+
+Example 26: Ransom Note https://leetcode.com/problems/ransom-note/description/
+
+Example 27: 3Sum https://leetcode.com/problems/3sum/description/
+
+Example 28: 4Sum https://leetcode.com/problems/4sum/description/
+
 
 
 
