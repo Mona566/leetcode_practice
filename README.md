@@ -84,6 +84,20 @@ Example 27: 3Sum https://leetcode.com/problems/3sum/description/
 
 Example 28: 4Sum https://leetcode.com/problems/4sum/description/
 
+string
+
+Example 29: Reverse String https://leetcode.com/problems/reverse-string/description/
+
+Example 30: Reverse String II https://leetcode.com/problems/reverse-string-ii/description/
+
+Example 31: Reverse Words in a String https://leetcode.com/problems/reverse-words-in-a-string/description/
+
+(day 16 - day 20)
+
+Example 32: Find the Index of the First Occurrence in a String  https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+
+Example 33: Repeated Substring Pattern  https://leetcode.com/problems/repeated-substring-pattern/description/
+
 
 
 
