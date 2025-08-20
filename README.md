@@ -98,6 +98,9 @@ Example 32: Find the Index of the First Occurrence in a String  https://leetcode
 
 Example 33: Repeated Substring Pattern  https://leetcode.com/problems/repeated-substring-pattern/description/
 
+Stack and queue
+
+Example 34: Implement Queue using Stacks https://leetcode.com/problems/implement-queue-using-stacks/description/
 
 
 
