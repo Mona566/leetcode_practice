@@ -4,11 +4,11 @@ class Solution:
     def removeDuplicates(self, s: str) -> str:
         res=[]
         for i in s:
-            if len(res)>0 and res[-1]==i:
-                res.pop()
+            if len(res)>0 and res[-1]==i:  #If the stack is not empty and the last character equals the current one a, we have an adjacent duplicate.
+                res.pop() #remove the last character (duplicate pair is removed).
             else:
-                res.append(i)
-        return "".join(res)
+                res.append(i) 
+        return "".join(res) #"".join(ans) converts it back to a string.
 
 
         
