@@ -102,6 +102,10 @@ Stack and queue
 
 Example 34: Implement Queue using Stacks https://leetcode.com/problems/implement-queue-using-stacks/description/
 
+Example 35: Remove All Adjacent Duplicates In String https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/description/
+
+Example 36: Evaluate Reverse Polish Notation https://leetcode.com/problems/evaluate-reverse-polish-notation/description/
+
 
 
 
