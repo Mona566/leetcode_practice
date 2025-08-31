@@ -1,1 +1,23 @@
+example Top K Frequent Elements https://leetcode.com/problems/top-k-frequent-elements/description/
+code:
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        dic={}
+        freq=[[] for i in range(len(nums)+1)]
 
+        for i in nums:
+            dic[i]=1+dic.get(i,0)
+            
+        for key,value in dic.items():
+            freq[value].append(key)
+        
+        res=[]
+        for i in range(len(freq)-1,0,-1): #from the largest to the smallest of i
+            for n in freq[i]:
+                res.append(n)
+                if len(res)==k:
+                    return res
+
+
+# Why len(nums)+1 instead of len(nums)?
+# Because an element might appear len(nums) times.
